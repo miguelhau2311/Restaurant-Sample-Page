@@ -4,7 +4,7 @@
 -- Paste this entire file into the Supabase SQL Editor and run it.
 --
 -- IMPORTANT: Change the admin email below to match your Supabase auth user.
--- Currently set to: miguel.haudek@gmail.com
+-- Currently set to: your-admin-email@example.com
 -- ============================================================
 
 -- ============================================================
@@ -88,44 +88,44 @@ CREATE POLICY "Anyone can insert reservations"
 CREATE POLICY "Admin can view reservations"
   ON reservations FOR SELECT
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- Only admin can update reservations
 CREATE POLICY "Admin can update reservations"
   ON reservations FOR UPDATE
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- Only admin can delete reservations
 CREATE POLICY "Admin can delete reservations"
   ON reservations FOR DELETE
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- ----- Menu Items -----
 -- Anyone can view active menu items
 CREATE POLICY "Anyone can view active menu items"
   ON menu_items FOR SELECT
   TO anon, authenticated
-  USING (active = true OR auth.email() = 'miguel.haudek@gmail.com');
+  USING (active = true OR auth.email() = 'your-admin-email@example.com');
 
 -- Admin can insert menu items
 CREATE POLICY "Admin can insert menu items"
   ON menu_items FOR INSERT
   TO authenticated
-  WITH CHECK (auth.email() = 'miguel.haudek@gmail.com');
+  WITH CHECK (auth.email() = 'your-admin-email@example.com');
 
 -- Admin can update menu items
 CREATE POLICY "Admin can update menu items"
   ON menu_items FOR UPDATE
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- Admin can delete menu items
 CREATE POLICY "Admin can delete menu items"
   ON menu_items FOR DELETE
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- ----- Opening Hours -----
 -- Anyone can view opening hours
@@ -138,19 +138,19 @@ CREATE POLICY "Anyone can view opening hours"
 CREATE POLICY "Admin can insert opening hours"
   ON opening_hours FOR INSERT
   TO authenticated
-  WITH CHECK (auth.email() = 'miguel.haudek@gmail.com');
+  WITH CHECK (auth.email() = 'your-admin-email@example.com');
 
 -- Admin can update opening hours
 CREATE POLICY "Admin can update opening hours"
   ON opening_hours FOR UPDATE
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- Admin can delete opening hours
 CREATE POLICY "Admin can delete opening hours"
   ON opening_hours FOR DELETE
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- ----- System Settings -----
 -- Anyone can view system settings
@@ -163,19 +163,19 @@ CREATE POLICY "Anyone can view system settings"
 CREATE POLICY "Admin can insert system settings"
   ON system_settings FOR INSERT
   TO authenticated
-  WITH CHECK (auth.email() = 'miguel.haudek@gmail.com');
+  WITH CHECK (auth.email() = 'your-admin-email@example.com');
 
 -- Admin can update system settings
 CREATE POLICY "Admin can update system settings"
   ON system_settings FOR UPDATE
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- Admin can delete system settings
 CREATE POLICY "Admin can delete system settings"
   ON system_settings FOR DELETE
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- ----- Emails -----
 -- Anyone can insert emails (for reservation confirmations)
@@ -188,7 +188,7 @@ CREATE POLICY "Anyone can insert emails"
 CREATE POLICY "Admin can view emails"
   ON emails FOR SELECT
   TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 -- ============================================================
 -- 3. STORAGE
@@ -208,17 +208,17 @@ CREATE POLICY "Anyone can view menu images"
 CREATE POLICY "Admin can upload menu images"
   ON storage.objects FOR INSERT
   TO authenticated
-  WITH CHECK (bucket_id = 'menu-images' AND auth.email() = 'miguel.haudek@gmail.com');
+  WITH CHECK (bucket_id = 'menu-images' AND auth.email() = 'your-admin-email@example.com');
 
 CREATE POLICY "Admin can update menu images"
   ON storage.objects FOR UPDATE
   TO authenticated
-  USING (bucket_id = 'menu-images' AND auth.email() = 'miguel.haudek@gmail.com');
+  USING (bucket_id = 'menu-images' AND auth.email() = 'your-admin-email@example.com');
 
 CREATE POLICY "Admin can delete menu images"
   ON storage.objects FOR DELETE
   TO authenticated
-  USING (bucket_id = 'menu-images' AND auth.email() = 'miguel.haudek@gmail.com');
+  USING (bucket_id = 'menu-images' AND auth.email() = 'your-admin-email@example.com');
 
 -- ============================================================
 -- 4. SEED DATA

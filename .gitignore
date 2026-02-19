@@ -3,3 +3,12 @@ dist
 .env
 .env.local
 .DS_Store
+
+# Claude Code local settings (may contain secrets)
+.claude/
+
+# Supabase temp files (connection strings)
+supabase/.temp/
+
+# Bolt config
+.bolt/

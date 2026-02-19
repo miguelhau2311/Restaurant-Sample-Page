@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Clock, Users, CalendarDays, ChevronLeft, Phone, CheckCircle } from "lucide-react";
 import toast from "react-hot-toast";
 import { cn } from "../lib/utils";
+import { sendReservationEmail } from "../lib/sendReservationEmail";
 
 interface OpeningHours {
   id: string;
@@ -213,17 +214,16 @@ const Reservations: React.FC = () => {
 
       if (error) throw error;
 
-      // Send confirmation email (non-blocking)
-      try {
-        await supabase.from('emails').insert([{
-          to: reservationData.email,
-          subject: 'Your Reservation Confirmation',
-          content: `New reservation from ${reservationData.name} for ${format(selectedDate, 'MM/dd/yyyy')} at ${reservationData.time}`,
-          status: 'pending'
-        }]);
-      } catch {
-        // Email insert failure should not block the reservation
-      }
+      // Send confirmation email + notify restaurant (non-blocking)
+      sendReservationEmail("received", {
+        name: reservationData.name,
+        email: reservationData.email,
+        phone: reservationData.phone || undefined,
+        guests: reservationData.guests,
+        date: format(selectedDate, 'EEEE, MMMM d, yyyy'),
+        time: reservationData.time,
+        special_requests: reservationData.notes || undefined,
+      });
 
       setConfirmedReservation({
         name: reservationData.name,

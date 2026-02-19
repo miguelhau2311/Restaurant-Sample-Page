@@ -11,6 +11,7 @@ import { Calendar } from "../components/ui/calendar";
 import { cn } from "../lib/utils";
 import { useAuth } from '../context/AuthContext';
 import toast from 'react-hot-toast';
+import { sendReservationEmail } from '../lib/sendReservationEmail';
 
 interface Reservation {
   id: string;
@@ -21,7 +22,7 @@ interface Reservation {
   email?: string;
   phone?: string;
   special_requests?: string;
-  status: 'confirmed' | 'pending';
+  status: 'confirmed' | 'pending' | 'declined';
 }
 
 interface MenuItem {
@@ -372,8 +373,7 @@ export default function AdminDashboard() {
     }
   };
 
-  const handleToggleReservationStatus = async (reservation: Reservation) => {
-    const newStatus = reservation.status === 'confirmed' ? 'pending' : 'confirmed';
+  const handleSetReservationStatus = async (reservation: Reservation, newStatus: 'confirmed' | 'pending' | 'declined') => {
     try {
       const { error } = await supabase
         .from('reservations')
@@ -383,7 +383,7 @@ export default function AdminDashboard() {
       if (error) throw error;
 
       const updateReservation = (r: Reservation) =>
-        r.id === reservation.id ? { ...r, status: newStatus as 'confirmed' | 'pending' } : r;
+        r.id === reservation.id ? { ...r, status: newStatus } : r;
 
       setSelectedReservations(prev => prev.map(updateReservation));
       setCalendarDates(prev =>
@@ -393,7 +393,25 @@ export default function AdminDashboard() {
         }))
       );
 
-      toast.success(newStatus === 'confirmed' ? 'Reservation confirmed' : 'Reservation set to pending');
+      // Send email notification to customer
+      if (newStatus === 'confirmed' || newStatus === 'declined') {
+        const dateStr = format(parseLocalDate(reservation.date), 'EEEE, MMMM d, yyyy');
+        sendReservationEmail(newStatus, {
+          name: reservation.name,
+          email: reservation.email || '',
+          phone: reservation.phone || undefined,
+          guests: reservation.guests,
+          date: dateStr,
+          time: reservation.time || undefined,
+        });
+      }
+
+      const messages: Record<string, string> = {
+        confirmed: 'Reservation confirmed — email sent to customer',
+        declined: 'Reservation declined — email sent to customer',
+        pending: 'Reservation set to pending',
+      };
+      toast.success(messages[newStatus]);
     } catch (error) {
       console.error('Error updating reservation status:', error);
       toast.error('Error updating reservation status');
@@ -1154,9 +1172,11 @@ export default function AdminDashboard() {
                             "text-xs font-medium px-2 py-0.5 rounded-full flex-shrink-0",
                             res.status === 'confirmed'
                               ? "bg-green-100 text-green-700"
+                              : res.status === 'declined'
+                              ? "bg-red-100 text-red-700"
                               : "bg-yellow-100 text-yellow-700"
                           )}>
-                            {res.status === 'confirmed' ? 'Confirmed' : 'Pending'}
+                            {res.status === 'confirmed' ? 'Confirmed' : res.status === 'declined' ? 'Declined' : 'Pending'}
                           </span>
                         </div>
                       ))}
@@ -1251,24 +1271,25 @@ export default function AdminDashboard() {
                               )}
                             </div>
                             <div className="flex items-start gap-1 sm:gap-2 ml-2 flex-shrink-0">
-                              {/* Status toggle button */}
-                              {reservation.status === 'pending' ? (
+                              {/* Status buttons */}
+                              {reservation.status !== 'confirmed' && (
                                 <button
-                                  onClick={() => handleToggleReservationStatus(reservation)}
+                                  onClick={() => handleSetReservationStatus(reservation, 'confirmed')}
                                   className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs sm:text-sm font-medium bg-green-100 text-green-700 hover:bg-green-200 transition-colors"
                                   title="Confirm reservation"
                                 >
                                   <CheckCircle2 className="h-3.5 w-3.5" />
                                   Confirm
                                 </button>
-                              ) : (
+                              )}
+                              {reservation.status !== 'declined' && (
                                 <button
-                                  onClick={() => handleToggleReservationStatus(reservation)}
-                                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs sm:text-sm font-medium bg-yellow-100 text-yellow-700 hover:bg-yellow-200 transition-colors"
-                                  title="Mark as pending"
+                                  onClick={() => handleSetReservationStatus(reservation, 'declined')}
+                                  className="inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs sm:text-sm font-medium bg-red-100 text-red-700 hover:bg-red-200 transition-colors"
+                                  title="Decline reservation"
                                 >
                                   <XCircle className="h-3.5 w-3.5" />
-                                  Pending
+                                  Decline
                                 </button>
                               )}
                               <button

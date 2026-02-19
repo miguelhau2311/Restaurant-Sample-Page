@@ -65,8 +65,8 @@ CREATE POLICY "Public can view active meals" ON meals
 
 CREATE POLICY "Admin can manage meals" ON meals
   FOR ALL TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com')
-  WITH CHECK (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com')
+  WITH CHECK (auth.email() = 'your-admin-email@example.com');
 
 -- Policies for reservations
 CREATE POLICY "Public can create reservations" ON reservations
@@ -75,9 +75,9 @@ CREATE POLICY "Public can create reservations" ON reservations
 
 CREATE POLICY "Admin can view all reservations" ON reservations
   FOR SELECT TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com');
 
 CREATE POLICY "Admin can manage reservations" ON reservations
   FOR ALL TO authenticated
-  USING (auth.email() = 'miguel.haudek@gmail.com')
-  WITH CHECK (auth.email() = 'miguel.haudek@gmail.com');
+  USING (auth.email() = 'your-admin-email@example.com')
+  WITH CHECK (auth.email() = 'your-admin-email@example.com');
