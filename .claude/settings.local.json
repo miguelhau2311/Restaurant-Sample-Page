@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run build:*)",
+      "Bash(curl:*)",
+      "Bash(lsof:*)",
+      "Bash(node:*)",
+      "Bash(npx tsc:*)",
+      "Bash(SUPABASE_URL=\"https://rwegbtyhlzxfjwdrousw.supabase.co\")",
+      "Bash(SUPABASE_KEY=\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJ3ZWdidHlobHp4Zmp3ZHJvdXN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE0NDYwNTAsImV4cCI6MjA4NzAyMjA1MH0.wzw7lipfZYrV57NAiC17HRQhoDp5HkcqN8xPYvKo4jc\":*)",
+      "Bash(__NEW_LINE_afa42134d45f7101__ echo \"=== opening_hours ===\")",
+      "Bash(__NEW_LINE_afa42134d45f7101__ echo -e \"\\\\n\\\\n=== reservations ===\")",
+      "Bash(__NEW_LINE_afa42134d45f7101__ echo -e \"\\\\n\\\\n=== menu_items ===\")",
+      "Bash(__NEW_LINE_afa42134d45f7101__ echo -e \"\\\\n\\\\n=== system_settings ===\")",
+      "Bash(npm ls:*)",
+      "Bash(gh repo view:*)"
+    ]
+  }
+}
