@@ -4,7 +4,7 @@ import { Facebook, Instagram, Mail } from 'lucide-react';
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Contact */}
           <div>
@@ -63,11 +63,11 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-sm">
+        <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-sm">
           <div className="mb-4 md:mb-0">
             &copy; {new Date().getFullYear()} Gourmet Haven. All rights reserved.
           </div>
-          <div className="flex space-x-6">
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
             <Link to="/legal" className="hover:text-orange-500 transition-colors">
               Legal Notice
             </Link>

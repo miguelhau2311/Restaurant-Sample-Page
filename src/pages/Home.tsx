@@ -74,7 +74,7 @@ const Home: React.FC = () => {
         className="relative h-screen bg-black"
       >
         <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed"
+          className="absolute inset-0 w-full h-full bg-cover bg-center md:bg-fixed"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80")'
           }}
@@ -87,25 +87,25 @@ const Home: React.FC = () => {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-white"
           >
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
               Welcome to<br/>
               <span className="text-orange-500">Gourmet Haven</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-12 max-w-2xl text-gray-200">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 md:mb-12 max-w-2xl text-gray-200">
               Experience culinary excellence in every bite.
               Our passion for food meets exceptional service.
             </p>
-            <div className="space-x-6">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6">
               <Link
                 to="/reservations"
-                className="group bg-orange-600 text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-orange-700 transition-all duration-300 inline-flex items-center"
+                className="group bg-orange-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-md text-base sm:text-lg font-semibold hover:bg-orange-700 transition-all duration-300 inline-flex items-center text-center"
               >
                 Reserve a Table
                 <Calendar className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/menu"
-                className="group bg-white text-gray-900 px-8 py-4 rounded-md text-lg font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center"
+                className="group bg-white text-gray-900 px-6 py-3 sm:px-8 sm:py-4 rounded-md text-base sm:text-lg font-semibold hover:bg-gray-100 transition-all duration-300 inline-flex items-center text-center"
               >
                 View Menu
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -116,21 +116,21 @@ const Home: React.FC = () => {
       </motion.div>
 
       {/* Features */}
-      <div className="py-32 bg-white">
+      <div className="py-12 sm:py-16 md:py-24 lg:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Gourmet Haven?</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Gourmet Haven?</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Discover what makes us special and let our passion for excellent cuisine convince you.
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 md:gap-12">
             <Feature
               icon={<ChefHat className="h-8 w-8" />}
               title="Master Chefs"
@@ -151,7 +151,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Featured Dishes */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50">
         <motion.div
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -159,9 +159,9 @@ const Home: React.FC = () => {
           viewport={{ once: true }}
           className="container mx-auto px-4"
         >
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Recommendations</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Recommendations</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Discover our carefully selected specialties,
               prepared with love by our chefs.
             </p>
@@ -210,17 +210,17 @@ const Home: React.FC = () => {
       </section>
 
       {/* Testimonials */}
-      <div className="py-24 bg-white">
+      <div className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Guests Say</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">What Our Guests Say</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               Authentic reviews from guests who have already experienced our culinary journey.
             </p>
           </motion.div>
@@ -245,18 +245,18 @@ const Home: React.FC = () => {
       </div>
 
       {/* Opening Hours & Address */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-12">
             {/* Opening Hours */}
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-xl p-8"
+              className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8"
             >
-              <div className="flex items-center mb-8">
+              <div className="flex items-center mb-4 sm:mb-6 md:mb-8">
                 <Clock className="h-8 w-8 text-orange-500" />
                 <h3 className="text-2xl font-bold ml-4">Opening Hours</h3>
               </div>
@@ -266,8 +266,8 @@ const Home: React.FC = () => {
                     key={hours.id}
                     className="flex justify-between items-center border-b border-gray-100 pb-4"
                   >
-                    <span className="text-lg text-gray-600">{hours.day}</span>
-                    <span className="text-lg font-medium">
+                    <span className="text-base sm:text-lg text-gray-600">{hours.day}</span>
+                    <span className="text-base sm:text-lg font-medium">
                       {hours.closed ? (
                         <span className="text-red-500">Closed</span>
                       ) : (
@@ -285,17 +285,17 @@ const Home: React.FC = () => {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-xl p-8"
+              className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8"
             >
-              <div className="flex items-center mb-8">
+              <div className="flex items-center mb-4 sm:mb-6 md:mb-8">
                 <MapPin className="h-8 w-8 text-orange-500" />
                 <h3 className="text-2xl font-bold ml-4">How to Find Us</h3>
               </div>
               <div className="space-y-6">
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Address</h4>
-                  <p className="text-lg text-gray-600">Musterstrasse 123</p>
-                  <p className="text-lg text-gray-600">1234 Vienna</p>
+                  <p className="text-base sm:text-lg text-gray-600">Musterstrasse 123</p>
+                  <p className="text-base sm:text-lg text-gray-600">1234 Vienna</p>
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2">Reservation</h4>
@@ -308,7 +308,7 @@ const Home: React.FC = () => {
                   </Link>
                 </div>
                 <div className="mt-8">
-                  <div className="h-64 rounded-lg overflow-hidden">
+                  <div className="h-48 sm:h-64 rounded-lg overflow-hidden">
                     <iframe
                       title="Restaurant Location"
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2659.3334832076464!2d16.37223231562928!3d48.20832857922864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476d079f79adf79d%3A0x3c34c8bdc5cbd291!2sStephansplatz%2C%201010%20Wien!5e0!3m2!1sde!2sat!4v1643835229居4"
@@ -326,7 +326,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-24 bg-black">
+      <section className="py-12 sm:py-16 md:py-24 bg-black">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -338,65 +338,65 @@ const Home: React.FC = () => {
               <img
                 src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
                 alt="Restaurant Interior"
-                className="w-full h-[500px] object-cover rounded-lg hover:opacity-90 transition-opacity"
+                className="w-full h-[250px] sm:h-[350px] md:h-[500px] object-cover rounded-lg hover:opacity-90 transition-opacity"
               />
             </div>
             <div className="grid grid-cols-2 md:grid-cols-1 gap-6">
               <img
                 src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
                 alt="Fine Dining"
-                className="w-full h-[240px] object-cover rounded-lg hover:opacity-90 transition-opacity"
+                className="w-full h-[180px] sm:h-[240px] object-cover rounded-lg hover:opacity-90 transition-opacity"
               />
               <img
                 src="https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
                 alt="Wine Selection"
-                className="w-full h-[240px] object-cover rounded-lg hover:opacity-90 transition-opacity"
+                className="w-full h-[180px] sm:h-[240px] object-cover rounded-lg hover:opacity-90 transition-opacity"
               />
             </div>
             <div className="md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-6">
               <img
                 src="https://images.unsplash.com/photo-1542834291-c514e77b215f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
                 alt="Chef at Work"
-                className="w-full h-[300px] object-cover rounded-lg hover:opacity-90 transition-opacity"
+                className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover rounded-lg hover:opacity-90 transition-opacity"
               />
               <img
                 src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
                 alt="Dessert"
-                className="w-full h-[300px] object-cover rounded-lg hover:opacity-90 transition-opacity"
+                className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover rounded-lg hover:opacity-90 transition-opacity"
               />
               <img
                 src="https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
                 alt="Restaurant Atmosphere"
-                className="w-full h-[300px] object-cover rounded-lg hover:opacity-90 transition-opacity md:block hidden"
+                className="w-full h-[200px] sm:h-[250px] md:h-[300px] object-cover rounded-lg hover:opacity-90 transition-opacity md:block hidden"
               />
             </div>
           </div>
         </motion.div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="w-1/2"
+              className="w-full lg:w-1/2"
             >
               <img
                 src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2340&q=80"
                 alt="Our Chef"
-                className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
+                className="rounded-2xl shadow-2xl w-full h-[300px] sm:h-[400px] lg:h-[600px] object-cover"
               />
             </motion.div>
             <motion.div
               initial={{ x: 100, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
-              className="w-1/2"
+              className="w-full lg:w-1/2"
             >
-              <h2 className="text-4xl font-bold mb-6">Chef's Special</h2>
-              <p className="text-xl text-gray-600 mb-8">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Chef's Special</h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-6 sm:mb-8">
                 Discover the exquisite creations of our head chef,
                 inspired by local ingredients and international influences.
               </p>
@@ -421,7 +421,7 @@ const Feature = ({ icon, title, description }: { icon: React.ReactNode; title: s
     whileInView={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
-    className="group text-center hover:bg-orange-50 p-8 rounded-xl transition-colors duration-300"
+    className="group text-center hover:bg-orange-50 p-5 sm:p-6 md:p-8 rounded-xl transition-colors duration-300"
   >
     <div className="inline-flex items-center justify-center h-16 w-16 rounded-full bg-orange-100 text-orange-600 mb-6 group-hover:scale-110 transition-transform duration-300">
       {icon}
@@ -434,7 +434,7 @@ const Feature = ({ icon, title, description }: { icon: React.ReactNode; title: s
 const Testimonial = ({ text, author, rating }: { text: string; author: string; rating: number }) => (
   <motion.div
     whileHover={{ y: -5 }}
-    className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+    className="bg-white rounded-xl p-5 sm:p-6 md:p-8 shadow-lg hover:shadow-xl transition-all duration-300"
   >
     <div className="flex items-center mb-6">
       <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center text-white text-xl font-bold">

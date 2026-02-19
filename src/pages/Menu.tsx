@@ -57,9 +57,9 @@ const Menu: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative h-[40vh] bg-black">
+      <div className="relative h-[30vh] sm:h-[35vh] md:h-[40vh] bg-black">
         <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed"
+          className="absolute inset-0 w-full h-full bg-cover bg-center md:bg-fixed"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3")'
           }}
@@ -71,8 +71,8 @@ const Menu: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-4">Our Menu</h1>
-            <p className="text-xl text-gray-200">Discover our culinary creations</p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">Our Menu</h1>
+            <p className="text-base sm:text-lg md:text-xl text-gray-200">Discover our culinary creations</p>
           </motion.div>
         </div>
       </div>
@@ -118,7 +118,7 @@ const Menu: React.FC = () => {
       </div>
 
       {/* Menu Grid */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <div className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredItems.map((item) => (
             <motion.div
@@ -130,7 +130,7 @@ const Menu: React.FC = () => {
               className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
             >
               {item.image_path && (
-                <div className="relative h-60 overflow-hidden group">
+                <div className="relative h-48 sm:h-60 overflow-hidden group">
                   <img
                     src={item.image_path}
                     alt={item.name}
@@ -148,7 +148,7 @@ const Menu: React.FC = () => {
                       {item.category.charAt(0).toUpperCase() + item.category.slice(1)}
                     </span>
                   </div>
-                  <span className="text-2xl font-bold text-orange-600">
+                  <span className="text-xl sm:text-2xl font-bold text-orange-600">
                     &euro;{item.price.toFixed(2)}
                   </span>
                 </div>

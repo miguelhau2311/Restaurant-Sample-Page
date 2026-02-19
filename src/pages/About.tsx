@@ -5,9 +5,9 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[60vh] bg-black">
+      <div className="relative h-[40vh] sm:h-[50vh] md:h-[60vh] bg-black">
         <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed"
+          className="absolute inset-0 w-full h-full bg-cover bg-center md:bg-fixed"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1559339352-11d035aa65de?ixlib=rb-4.0.3")'
           }}
@@ -20,10 +20,10 @@ const About: React.FC = () => {
               animate={{ y: 0, opacity: 1 }}
               className="max-w-3xl"
             >
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-6">
                 Our Story
               </h1>
-              <p className="text-xl text-gray-200">
+              <p className="text-base sm:text-lg md:text-xl text-gray-200">
                 Since 1995, we have been serving authentic cuisine with passion and innovation
               </p>
             </motion.div>
@@ -32,9 +32,9 @@ const About: React.FC = () => {
       </div>
 
       {/* Story Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row items-center gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-6 sm:gap-8 lg:gap-12">
             <motion.div
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
@@ -53,13 +53,13 @@ const About: React.FC = () => {
               viewport={{ once: true }}
               className="lg:w-1/2"
             >
-              <h2 className="text-4xl font-bold mb-6">Tradition Meets Innovation</h2>
-              <p className="text-gray-600 mb-6 text-lg">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Tradition Meets Innovation</h2>
+              <p className="text-gray-600 mb-4 sm:mb-6 text-base sm:text-lg">
                 What began as a small family restaurant has evolved into a culinary
                 institution. Our kitchen combines traditional recipes with
                 modern cooking techniques and innovative interpretations.
               </p>
-              <p className="text-gray-600 text-lg">
+              <p className="text-gray-600 text-base sm:text-lg">
                 Every dish tells a story and reflects our passion
                 for extraordinary flavor experiences.
               </p>
@@ -69,16 +69,16 @@ const About: React.FC = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-12 sm:py-16 md:py-24 bg-gray-50">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">Our Values</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Our Values</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               These principles guide us every day in the preparation of our dishes
             </p>
           </motion.div>
@@ -108,16 +108,16 @@ const About: React.FC = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 bg-white">
+      <section className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-8 sm:mb-12 md:mb-16"
           >
-            <h2 className="text-4xl font-bold mb-4">Our Team</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
               The people behind our culinary creations
             </p>
           </motion.div>
@@ -145,28 +145,28 @@ const About: React.FC = () => {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-24 bg-black">
+      <section className="py-12 sm:py-16 md:py-24 bg-black">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
             <img
               src="https://images.unsplash.com/photo-1551218808-94e220e084d2?ixlib=rb-4.0.3"
               alt="Restaurant Impression"
-              className="w-full h-64 object-cover rounded-lg"
+              className="w-full h-48 sm:h-64 object-cover rounded-lg"
             />
             <img
               src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3"
               alt="Fine Dining"
-              className="w-full h-64 object-cover rounded-lg"
+              className="w-full h-48 sm:h-64 object-cover rounded-lg"
             />
             <img
               src="https://images.unsplash.com/photo-1552566626-52f8b828add9?ixlib=rb-4.0.3"
               alt="Interior"
-              className="w-full h-64 object-cover rounded-lg"
+              className="w-full h-48 sm:h-64 object-cover rounded-lg"
             />
             <img
               src="https://images.unsplash.com/photo-1542834291-c514e77b215f?ixlib=rb-4.0.3"
               alt="Kitchen"
-              className="w-full h-64 object-cover rounded-lg"
+              className="w-full h-48 sm:h-64 object-cover rounded-lg"
             />
           </div>
         </div>
@@ -178,7 +178,7 @@ const About: React.FC = () => {
 const ValueCard = ({ icon, title, description }: { icon: React.ReactNode; title: string; description: string }) => (
   <motion.div
     whileHover={{ y: -5 }}
-    className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+    className="bg-white p-5 sm:p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
   >
     <div className="text-orange-500 mb-4">{icon}</div>
     <h3 className="text-xl font-bold mb-2">{title}</h3>
@@ -191,7 +191,7 @@ const TeamMember = ({ image, name, role, description }: { image: string; name: s
     whileHover={{ y: -5 }}
     className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
   >
-    <div className="h-80 overflow-hidden">
+    <div className="h-56 sm:h-72 md:h-80 overflow-hidden">
       <img
         src={image}
         alt={name}

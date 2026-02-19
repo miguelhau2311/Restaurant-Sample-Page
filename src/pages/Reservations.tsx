@@ -296,9 +296,9 @@ const Reservations: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-[30vh] bg-black">
+      <div className="relative h-[25vh] sm:h-[30vh] bg-black">
         <div
-          className="absolute inset-0 w-full h-full bg-cover bg-center bg-fixed"
+          className="absolute inset-0 w-full h-full bg-cover bg-center md:bg-fixed"
           style={{
             backgroundImage: 'url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3")'
           }}
@@ -311,19 +311,19 @@ const Reservations: React.FC = () => {
               animate={{ y: 0, opacity: 1 }}
               className="max-w-3xl"
             >
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Reserve Your Table</h1>
-              <p className="text-lg text-gray-200">Enjoy an unforgettable evening with us</p>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">Reserve Your Table</h1>
+              <p className="text-base sm:text-lg text-gray-200">Enjoy an unforgettable evening with us</p>
             </motion.div>
           </div>
         </div>
       </div>
 
       {/* Main Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-8 sm:py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             {/* Step Indicator */}
-            <div className="flex items-center justify-center mb-12">
+            <div className="flex items-center justify-center mb-6 sm:mb-8 md:mb-12">
               {steps.map((step, index) => (
                 <div key={step.number} className="flex items-center">
                   <div className={cn(
@@ -649,7 +649,7 @@ const Reservations: React.FC = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 className="flex flex-col items-center"
               >
-                <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-lg text-center">
+                <div className="bg-white p-5 sm:p-6 md:p-8 rounded-2xl shadow-md w-full max-w-lg text-center">
                   <div className="flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mx-auto mb-5">
                     <CheckCircle className="h-8 w-8 text-green-600" />
                   </div>
@@ -665,7 +665,7 @@ const Reservations: React.FC = () => {
                     <div className="flex items-center gap-3">
                       <CalendarDays className="h-4 w-4 text-orange-500 flex-shrink-0" />
                       <span className="text-sm text-gray-600">Date</span>
-                      <span className="text-sm font-medium text-gray-900 ml-auto">{confirmedReservation.date}</span>
+                      <span className="text-sm font-medium text-gray-900 ml-auto text-right">{confirmedReservation.date}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Clock className="h-4 w-4 text-orange-500 flex-shrink-0" />

@@ -123,7 +123,7 @@ const Navbar = () => {
                   animate="visible"
                   exit="exit"
                   transition={{ type: 'tween', duration: 0.3, ease: 'easeInOut' }}
-                  className="fixed right-0 top-0 h-full w-72 bg-white shadow-lg z-50 flex flex-col"
+                  className="fixed right-0 top-0 h-full w-[85vw] max-w-72 bg-white shadow-lg z-50 flex flex-col"
                   aria-label="Mobile Navigation"
                 >
                   <div className="flex justify-between items-center p-6 border-b">

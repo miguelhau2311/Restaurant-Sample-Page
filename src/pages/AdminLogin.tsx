@@ -38,7 +38,7 @@ export default function AdminLogin() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
-      <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-md">
+      <div className="max-w-md w-full space-y-8 bg-white p-5 sm:p-6 md:p-8 rounded-xl shadow-md">
         <div>
           <div className="mx-auto h-12 w-12 flex items-center justify-center rounded-full bg-orange-100">
             <Lock className="h-6 w-6 text-orange-600" />
